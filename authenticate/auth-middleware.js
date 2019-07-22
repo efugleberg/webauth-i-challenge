@@ -12,7 +12,7 @@ module.exports = function authenticate(req, res, next) {
         if (user && bcrypt.compareSync(password, user.password)) {
           next();
         } else {
-          res.status(401).json({ message: "invalid credentials" });
+          res.status(401).json({ message: "you shall not pass!" });
         }
       })
       .catch(error => {

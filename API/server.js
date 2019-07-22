@@ -5,7 +5,7 @@ const AuthRouter = require("../authenticate/auth-router.js");
 
 const server = express();
 
-server.use(express.join());
+server.use(express.json());
 
 server.use("/api/users", UsersRouter);
 server.use("/api", AuthRouter);
