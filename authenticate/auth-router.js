@@ -23,6 +23,7 @@ router.post("/login", (req, res) => {
     .first()
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
+          req.session.username = user.username;  //  *****  Add Data to session with this code here!!  ******
         res.status(200).json({ message: `Welcome ${user.username}!` });
       } else {
         res.status(401).json({ message: "You shall not pass!" });
